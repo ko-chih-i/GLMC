@@ -125,6 +125,16 @@ class Trainer(object):
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
+                '''
+                tau = 1.2
+                with torch.no_grad():
+                  for name, param in self.model.named_parameters():
+                    if 'fc_cb.weight' in name:
+                      norm = param.norm(p=2, dim=1, keepdim=True)
+                      desired = torch.clamp(norm, max=tau)
+                      param.mul_(desired / (1e-8 + norm))
+
+'''
 
                 # measure elapsed time
                 batch_time.update(time.time() - end)

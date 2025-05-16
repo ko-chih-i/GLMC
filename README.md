@@ -30,15 +30,15 @@ All codes are written by Python 3.9 with
 ### Preparing Datasets
 Download the datasets CIFAR-10
 ````
+### Preparing 
+!pip install tensorboardX
+!mkdir -p GLMC-CVPR2023/output/
+````
 ## Training
 
 for CIFAR-10-LT
 ````
-python main.py --dataset cifar10 -a resnet32 --num_classes 10 --imbanlance_rate 0.01 --beta 0.5 --lr 0.01 --epochs 200 -b 64 --momentum 0.9 --weight_decay 5e-3 --resample_weighting 0.0 --label_weighting 1.2 --contrast_weight 1
-
-python main.py --dataset cifar10 -a resnet32 --num_classes 10 --imbanlance_rate 0.02 --beta 0.5 --lr 0.01 --epochs 200 -b 64 --momentum 0.9 --weight_decay 5e-3 --resample_weighting 0.0 --label_weighting 1.2 --contrast_weight 1
-
-python main.py --dataset cifar10 -a resnet32 --num_classes 10 --imbanlance_rate 0.1 --beta 0.5 --lr 0.01 --epochs 200 -b 64 --momentum 0.9 --weight_decay 5e-3 --resample_weighting 0.2 --label_weighting 1  --contrast_weight 2
+!python /content/GLMC/GLMC-2023/main.py  --dataset cifar10 --arch resnet32 --num_classes 10 --imbanlance_rate 0.02 --beta 0.5 --lr 0.01 --epochs 2 -b 64 --momentum 0.9 --weight_decay 5e-3 --resample_weighting 0.0 --label_weighting 1.2 --contrast_weight 4 --seed 42
 ````
 
 ## Citation
